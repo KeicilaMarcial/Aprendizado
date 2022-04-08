@@ -16,26 +16,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
-
-Route::group(['middleware' => ['web']], function () {
+Route::group(['middleware' => ['api']], function () {
     Auth::routes();
-
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-    Route::get('/wallet', [App\Http\Controllers\WalletController::class, 'index'])->name('wallet');
-
-    Route::group(['middleware' => ['common_user']], function () {
-        // Route::get('common_user', function () {
-        //     dd("Go Common!!");
-        // });
-        Route::get('/transaction', [App\Http\Controllers\UserController::class, 'payment']);
-        Route::get('/transaction/{value}/{payer}/{payeer}', [App\Http\Controllers\WalletController::class, 'transaction']);
-        
-    });
-
-    Route::group(['middleware' => ['shopkeeper_user']], function () {
-        // Route::get('shopkeeper_user', function () {
-        //  dd("Go Shoper!!");
-        // });
-    });
+    
+    // Route::group(['middleware' => ['common_user']], function () {
+    //     Route::get('/newTransaction', [app\Http\Controllers\UserController::class, 'newTransaction']);
+    //     Route::get('/transaction/{value}/{payer}/{payeer}', [App\Http\Controllers\WalletController::class, 'transaction']);
+    // });
 });
