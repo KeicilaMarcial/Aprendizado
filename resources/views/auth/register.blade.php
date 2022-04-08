@@ -60,6 +60,34 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
+                        
+                        <div class="row mb-3">
+                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Document') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="document" type="text" class="form-control @error('document') is-invalid @enderror" name="document" value="{{ old('document') }}" required autocomplete="document" autofocus>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Common user') }}</label>
+
+                            <div class="col-md-6">
+                            <input class="form-check-input" type="radio" name="common_user" id="exampleRadios1" value="{{0}}" ><lable>No</label>
+                            <input class="form-check-input" type="radio" name="common_user" id="exampleRadios1" value="{{1}}" checked><lable>Yes</label>
+
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Shopkeeper user') }}</label>
+
+                            <div class="col-md-6">
+                            <input class="form-check-input" type="radio" name="shopkeeper_user" id="exampleRadios1" value="{{0}}" checked><lable>No</label>
+                            <input class="form-check-input" type="radio" name="shopkeeper_user" id="exampleRadios1" value="{{1}}" ><lable>Yes</label>
+
+                            </div>
+                        </div>
 
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
