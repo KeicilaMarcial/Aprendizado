@@ -18,4 +18,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::apiResource('wallets', App\Http\Controllers\WalletController::class);
+// Route::apiResource('wallets', App\Http\Controllers\WalletController::class);
+Route::get('/transaction', [App\Http\Controllers\WalletController::class, 'transaction']);
