@@ -21,6 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'common_user',
+        'shopkeeper_user'
     ];
 
     /**
@@ -41,4 +43,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function wallet()
+    {
+        return $this->hasOne(Wallet::class);
+    }
+
+    public function transactionLog()
+    {
+        return $this->hasMany(TransactionLog::class);
+    }
 }
