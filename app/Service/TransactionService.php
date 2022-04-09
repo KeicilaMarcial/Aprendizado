@@ -9,7 +9,7 @@ use App\Repository\WalletRepository ;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Response;
 
-class TransectionService
+class TransactionService
 {   
     public function __construct(WalletRepository $walletRepository, Response $response){
 		$this->walletRepository = $walletRepository;

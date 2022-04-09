@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Service\TransectionService;
+use App\Service\TransactionService;
 use App\Service\UserPermissionService;
 use Illuminate\Http\Response;
 
@@ -17,7 +17,7 @@ class WalletController extends Controller
 
      private $wallet;
 
-    public function __construct(TransectionService $transactionService, UserPermissionService $userPermissionService){
+    public function __construct(TransactionService $transactionService, UserPermissionService $userPermissionService){
         $this->transactionService = $transactionService;
         $this->userPermissionService = $userPermissionService;    
 	}
