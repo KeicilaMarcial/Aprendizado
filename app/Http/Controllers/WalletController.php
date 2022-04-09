@@ -25,10 +25,14 @@ class WalletController extends Controller
     public function transaction(Request $request){   
         if(($this->userPermissionService->verifyUserType($request->common_user))==true) {
             return response()->json([
-                'Erro' => 'Unauthorized'
+                'Error' => 'Unauthorized'
             ], 400);
         }
-        $this->transactionService->transaction($request->all());
-        
+        if (!$this->transactionService->transaction($request->all())){
+            return response()->json([
+                'Error' => 'Ops! Something went wrong, check if you have enough balance'
+            ],400);
+        }
+        return response()->json([ 'message' => 'Success'],200);
     }
 }
